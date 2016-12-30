@@ -12,7 +12,27 @@ fi
 
 # Customize to your needs...
 
+setTerminalText () {
+    # echo works in bash & zsh
+    local mode=$1 ; shift
+    echo -ne "\033]$mode;$@\007"
+}
+
+stt_both  () { setTerminalText 0 $@; }
+stt_tab   () { setTerminalText 1 $@; }
+stt_title () { setTerminalText 2 $@; }
+
 source ~/.zshdockeraliases
+
+export GOPATH=/Users/wayne/Projects/fotexnet/golang
+export GOF=$GOPATH/src/stash.fotex.net/scm/go
+
+alias gof="cd $GOF"
+alias rbud="r-ssh-bud-01.sh"
+alias rams="r-ssh-ams-06.sh"
+
+setopt no_share_history
+unsetopt share_history
 
 alias mypubip="dig +short myip.opendns.com @resolver1.opendns.com"
 
