@@ -26,10 +26,13 @@ source ~/.zshdockeraliases
 
 export GOPATH=/Users/wayne/Projects/fotexnet/golang
 export GOF=$GOPATH/src/stash.fotex.net/scm/go
+export meetup=/Users/wayne/Projects/personal/talks/devops-meetup-2017
+export PATH=$PATH:$GOPATH/bin
 
+alias meetup="cd $meetup"
 alias gof="cd $GOF"
-alias rbud="r-ssh-bud-01.sh"
-alias rams="r-ssh-ams-06.sh"
+alias rbud="r-ssh.sh bud-01"
+alias rams="r-ssh.sh ams-06"
 
 setopt no_share_history
 unsetopt share_history

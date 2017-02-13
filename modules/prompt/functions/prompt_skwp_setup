@@ -23,6 +23,11 @@ function prompt_skwp_precmd {
   if (( $+functions[ruby-info] )); then
     ruby-info
   fi
+
+  export DD=""
+  if [ ! -z $DOCKER_MACHINE_NAME ]; then
+    export DD=" (dm: %F{81}${DOCKER_MACHINE_NAME}%f)"
+  fi
 }
 
 function prompt_skwp_setup {
@@ -68,7 +73,7 @@ function prompt_skwp_setup {
   zstyle ':prezto:module:ruby:info:version' format '[%v]'
 
   # Define prompts.
-  PROMPT="${_prompt_skwp_colors[3]}%n%f@${_prompt_skwp_colors[2]}%m%f ${_prompt_skwp_colors[5]}%~%f "'${git_info:+${(e)git_info[prompt]}}'"
+  PROMPT="${DD}${_prompt_skwp_colors[3]}%n%f@${_prompt_skwp_colors[2]}%m%f ${_prompt_skwp_colors[5]}%~%f"'$DD'" "'${git_info:+${(e)git_info[prompt]}}'"
 $ "
   RPROMPT='%F{blue}${ruby_info[version]}'
 }

@@ -48,4 +48,4 @@ dbu() { docker build -t=$1 .; }
 dalias() { alias | grep 'docker' | sed "s/^\([^=]*\)=\(.*\)/\1 => \2/"| sed "s/['|\']//g" | sort; }
 
 dmenv() { eval "$(docker-machine env $1)"; }
-dmu()   { eval "$(docker-machine env --unset $DOCKER_MACHINE_NAME)"; }
+dmu()   { eval "$(docker-machine env --unset)"; }
